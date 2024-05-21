@@ -48,8 +48,8 @@ export function BarsContact() {
   };
 
   return (
-    <footer className="grid grid-flow-col gird-cols-3">
-      <div className="col-span-1 w-full max-w-xl mx-auto p-4 md:p-8">
+    <footer className="grid grid-flow-col gird-cols-3" id="contact-us">
+      <div className="col-span-1 w-full max-w-xl mx-auto p-4">
         <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
           Contact Us
         </h2>
@@ -133,38 +133,35 @@ export function BarsContact() {
           </button>
         </form>
       </div>
-      <div className="col-span-1 w-full max-w-md mx-auto rounded-none md:rounded-2xl p-4 md:p-8 bg-transparent">
-        <ul className="grid grid-flow-col grid-col-4">
-          <li className="col-span-1">
-            <BsInstagram className="h-8 w-8" />
-          </li>
-          <li className="col-span-1">
-            <BsEnvelopeAt className="h-8 w-8" />
-          </li>
-          <li className="col-span-1">
-            <PiFacebookLogoBold className="h-8 w-8" />
-          </li>
-          <li className="col-span-1">
-            <RiLinkedinBoxLine className="h-8 w-8" />
-          </li>
-        </ul>
+      <div className="col-span-1 w-full max-w-md mx-auto rounded-none p-4 bg-transparent">
         <div className="flex flex-col">
-          <span className="mt-10 my-7">
+          <span className="my-8">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga sequi
             ea, eligendi explicabo architecto aspernatur! Earum rerum facilis
             aperiam optio, dolor quidem modi perspiciatis magni pariatur quaerat
             eum ad totam.
           </span>
-          <span className="mt-10 my-7">&copy; 2024 All rights reserved</span>
-          <span>BARSTALKERS</span>
         </div>
+        <ul className="flex flex-row gap-6 my-2">
+          <li>
+            <BsInstagram className="h-8 w-8" />
+          </li>
+          <li>
+            <RiLinkedinBoxLine className="h-8 w-8" />
+          </li>
+          <li>
+            <PiFacebookLogoBold className="h-8 w-8" />
+          </li>
+        </ul>
+        <span>
+          &copy; 2024 All rights reserved <br />
+        </span>
+        <span>BARSTALKERS</span>
       </div>
       <div className="col-span-1 flex justify-center items-center">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d310.8309936860231!2d29.049458070385484!3d41.08679652571681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caca01c585b20f%3A0xccf0dc09c64f9184!2sAy%C5%9Fe%20Abla%20Tekel!5e0!3m2!1str!2str!4v1714946108276!5m2!1str!2str"
-          width="500"
-          height="400"
-          className="border-none"
+          className="border-none h-full w-32 xl:w-96 lg:w-96 md:w-44"
           loading="lazy"
         ></iframe>
       </div>

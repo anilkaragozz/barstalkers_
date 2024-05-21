@@ -19,11 +19,6 @@ const testimonials = [
     name: "Barstalkers3",
   },
   {
-    src: "/sephora-logo.png",
-    alt: "Sephora",
-    name: "Barstalkers4",
-  },
-  {
     src: "/Dimes-logo.png",
     alt: "Dimes",
     name: "Barstalkers5",
@@ -38,7 +33,11 @@ const testimonials = [
     alt: "Kalafilm",
     name: "Barstalkers7",
   },
-
+  {
+    src: "/sephora-logo.png",
+    alt: "Sephora",
+    name: "Barstalkers4",
+  },
   {
     src: "/paxie-logo.png",
     alt: "Paxie",

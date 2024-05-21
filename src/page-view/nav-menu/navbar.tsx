@@ -7,7 +7,7 @@ import { cn } from "@/utils/cn";
 function Navbar({ className }: { className?: string }) {
   return (
     <div
-      className={cn("fixed top-10 inset-x-0 max-w-4xl mx-auto z-50", className)}
+      className={cn("fixed top-10 inset-x-0 max-w-xl mx-auto z-50", className)}
     >
       <Menu>
         <Image
@@ -16,6 +16,7 @@ function Navbar({ className }: { className?: string }) {
           height={100}
           alt="Logo"
           className="relative w-[5rem]"
+          draggable={false}
         />
         <MenuItem item="About Us" id="#about" />
         <MenuItem item="Reference" id="#reference" />

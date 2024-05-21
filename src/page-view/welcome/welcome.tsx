@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 
-export function BarsSlider() {
+export function BarsWelcome() {
   return (
-    <div className="grid grid-row grid-cols-2 h-full mx-40">
-      <div className="flex justify-center items-center col-span-1">
+    <div className="grid grid-cols-2 h-full">
+      <div className="flex justify-center items-center col-span-1 mx-40 my-32">
         <span className="text-black text-4xl">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
           dolorum voluptatem mollitia cumque repudiandae modi quaerat explicabo
@@ -18,7 +18,7 @@ export function BarsSlider() {
         width="1000"
         height="1000"
         draggable="false"
-        className="col-span-1 object-cover md:h-[90%] inset-x-0 my-20 "
+        className="col-span-1 object-cover h-[30%] xl:h-[80%] lg:h-[60%] md:h-[50%] sm:h-[40%] inset-x-0 my-28"
       />
     </div>
   );

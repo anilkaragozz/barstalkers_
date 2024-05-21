@@ -1,7 +1,6 @@
-"use client"
+"use client";
 
 import Image from "next/image";
-import { TextRevealer } from "../../components/text-reveal";
 import { Tabs } from "../../components/ui/tabs";
 
 export function BarsAbout() {
@@ -40,13 +39,10 @@ export function BarsAbout() {
   ];
   return (
     <>
-      <div className="h-full w-full relative" id="about">
-        <TextRevealer
-          mainText="You know the business"
-          revealText="We know the chemistry"
-        />
-      </div>
-      <div className="h-[20rem] md:h-[40rem] [perspective:1000px] relative b flex flex-col max-w-5xl mx-auto w-full  items-start justify-start ">
+      <div
+        className="h-[20rem] md:h-[40rem] [perspective:1000px] relative b flex flex-col max-w-5xl mx-auto w-full  items-start justify-start"
+        id="about"
+      >
         <Tabs tabs={tabs} />
       </div>
     </>
