@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { Menu, MenuItem } from "../../components/ui/navbar-menu";
+import { Menu, MenuItem } from "@/components/ui/navbar-menu";
 import { cn } from "@/utils/cn";
 
 function Navbar({ className }: { className?: string }) {
+  // Todo: change here with https://ui.aceternity.com/components/flip-words with logo or change from welcome area ???
   return (
     <div
       className={cn("fixed top-10 inset-x-0 max-w-xl mx-auto z-50", className)}
