@@ -1,4 +1,4 @@
-import { TextRevealCard } from "../ui/text-reveal-card";
+import { TextRevealCard } from "@/components/ui/text-reveal-card";
 
 type TextRevealerProps = {
   mainText: string;
