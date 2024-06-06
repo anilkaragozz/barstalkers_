@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Oswald } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const oswald = Oswald({
+  weight: ["300"],
+  style: ["normal"],
+  subsets: ["latin-ext"],
+});
 
 export const metadata: Metadata = {
   title: "Barstalkers",
@@ -16,7 +20,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={oswald.className}>
+        <div className="h-full w-full bg-white bg-grid-black/[0.05]">
+          {children}
+        </div>
+      </body>
     </html>
   );
 }

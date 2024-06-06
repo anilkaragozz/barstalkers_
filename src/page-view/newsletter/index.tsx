@@ -1,92 +1,86 @@
 "use client";
 
-import { Input } from "@/components/ui/input";
-import { Meteors } from "@/components/ui/meteors";
-
-import React, { useState } from "react";
+import { useVisibilityStore } from "@/context";
+import React, { useEffect } from "react";
 
 export function BarsNewsletter() {
-  //Todo: Create a firebase or mongoDB connection and subscribe the user to the newsletter, You should use reach-hook form and create a api for sending the data to the database
-  // ps: do not miss control to mail is already in the database
-  // reasearch to how can send mail automatically
+  const { isVisible, toggleVisibility } = useVisibilityStore();
 
-  /*
-   const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<ContactForm>();
-
-  const onSubmit: SubmitHandler<ContactForm> = async (data) => {
-    try {
-      const response = await fetch("http://localhost:3000/sendmail", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (response.ok) {
-        const result = await response.json();
-        alert("Thank you for your message! " + result.message);
-      } else {
-        throw new Error("Network response was not ok.");
-      }
-    } catch (error) {
-      console.error("There was a problem with the fetch operation:", error);
-      alert("Failed to send message: " + error);
+  useEffect(() => {
+    if (isVisible) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
     }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isVisible]);
+
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+    toggleVisibility();
+    console.log(isVisible, "burda");
   };
 
-
-
-  const LabelInputContainer = ({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) => {
-  return (
-    <div className={cn("flex flex-col space-y-2 w-full", className)}>
-      {children}
-    </div>
-  );
-};
-  
-  */
-
-  const [isVisable, setIsVisable] = useState<boolean>(true);
-
-  // Todo: create aler message and time out for the message
-
-  const onSubmit = () => {
-    setIsVisable(false);
-    console.log(isVisable);
+  const handleClose = () => {
+    toggleVisibility();
   };
 
   return (
-    <div className="w-full h-full">
-      <div className="flex justify-center items-center bg-transparent">
-        <div className="w-full relative max-w-xs">
-          <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-full blur-3xl" />
-          <div className="relative shadow-xl bg-gray-900 border border-gray-800  px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
-            <h2>Bültene kayıt ol babus</h2>
-            <Input />
-
+    <>
+      {isVisible ? (
+        <div className="fixed inset-0 flex justify-center items-center z-50 bg-black bg-opacity-50">
+          <div className="relative w-full max-w-md p-6 bg-white rounded-2xl shadow-lg">
             <button
-              className="border px-4 py-1 rounded-lg  border-gray-500 text-gray-300"
-              onClick={onSubmit}
+              type="button"
+              className="absolute top-0 right-0 m-4 text-gray-600 hover:text-gray-800 transition"
+              onClick={handleClose}
             >
-              Explore
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
             </button>
-
-            {/* Meaty part - Meteor effect */}
-            <Meteors number={20} />
+            <h2 className="text-2xl font-semibold text-center text-gray-900 mb-4">
+              Join Our Newsletter
+            </h2>
+            <p className="text-center text-gray-600">
+              Subscribe to our newsletter to get the latest updates right to
+              your inbox.
+            </p>
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col justify-center items-center mt-6"
+            >
+              <div className="flex w-full">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="p-4 border outline-slate-200 rounded-l-lg w-3/4 "
+                />
+                <button
+                  type="submit"
+                  className="p-4 bg-orange-400 text-white rounded-r-lg hover:bg-orange-500 transition w-1/4"
+                >
+                  Subscribe
+                </button>
+              </div>
+            </form>
           </div>
         </div>
-      </div>
-    </div>
+      ) : null}
+    </>
   );
 }

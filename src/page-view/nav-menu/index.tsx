@@ -3,9 +3,9 @@
 import Image from "next/image";
 import { Menu, MenuItem } from "@/components/ui/navbar-menu";
 import { cn } from "@/utils/cn";
+import { useVisibilityStore } from "@/context";
 
 function Navbar({ className }: { className?: string }) {
-  // Todo: change here with https://ui.aceternity.com/components/flip-words with logo or change from welcome area ???
   return (
     <div
       className={cn("fixed top-10 inset-x-0 max-w-xl mx-auto z-50", className)}
@@ -16,7 +16,7 @@ function Navbar({ className }: { className?: string }) {
           width={100}
           height={100}
           alt="Logo"
-          className="relative w-[5rem]"
+          className="relative rounded-full w-[5rem]"
           draggable={false}
         />
         <MenuItem item="About Us" id="#about" />
@@ -28,9 +28,17 @@ function Navbar({ className }: { className?: string }) {
 }
 
 export function BarsNavbar() {
+  const { isVisible } = useVisibilityStore();
+
   return (
     <div className="relative w-full flex items-center justify-center">
-      <Navbar className="top-2" />
+      {isVisible ? (
+        <div className="pointer-events-none">
+          <Navbar className="top-2" />
+        </div>
+      ) : (
+        <Navbar className="top-2" />
+      )}
     </div>
   );
 }

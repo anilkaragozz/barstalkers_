@@ -1,25 +1,31 @@
 "use client";
 
+import { FlipWords } from "@/components/ui/flip-words";
 import Image from "next/image";
 
 export function BarsWelcome() {
+  const words = ["delicious", "unique", "exquisite", "refreshing"];
+
   return (
-    <div className="flex justify-between items-center mx-auto h-full w-[80%]">
-      <div className="mx-40 my-32">
-        <span className="text-black text-4xl">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
-          dolorum voluptatem mollitia cumque repudiandae modi quaerat explicabo
-          minima aliquam labore.
-        </span>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mx-auto my-28 w-[70%]">
+      <div className="flex flex-col justify-center items-center">
+        <div className="text-4xl mx-auto font-normal text-neutral-600 dark:text-neutral-400">
+          Enjoy our
+          <FlipWords words={words} />
+          cocktails crafted to perfection just for you.
+        </div>
       </div>
-      <Image
-        src="/martini.png"
-        alt="dummy image"
-        width="1000"
-        height="1000"
-        draggable="false"
-        className="object-cover h-[30%] xl:h-[80%] lg:h-[60%] md:h-[50%] sm:h-[40%] inset-x-0 my-28"
-      />
+      <div className="flex justify-center items-center">
+        <Image
+          src="/barss.gif"
+          alt="Martini"
+          width={500}
+          height={500}
+          className="object-cover rounded-2xl"
+          draggable="false"
+          unoptimized
+        />
+      </div>
     </div>
   );
 }

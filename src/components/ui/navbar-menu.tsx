@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -13,7 +11,7 @@ export const MenuItem = ({
   id: string;
 }) => {
   return (
-    <div onClick={() => console.log(id)} className="relative col-span-auto">
+    <div className="relative col-span-auto">
       <motion.a
         transition={{ duration: 0.3 }}
         className="cursor-pointer text-black hover:opacity-[0.9]"

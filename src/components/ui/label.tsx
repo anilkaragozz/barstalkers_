@@ -1,5 +1,3 @@
-"use client";
-
 import { cn } from "@/utils/cn";
 import * as React from "react";
 import * as LabelPrimitive from "@radix-ui/react-label";

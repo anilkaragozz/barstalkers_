@@ -81,7 +81,7 @@ export const InfiniteMovingCards = ({
       <ul
         ref={scrollerRef}
         className={cn(
-          "flex min-w-full shrink-0 gap-2 py-4 w-max flex-nowrap",
+          "flex min-w-full shrink-0 gap-2 w-max flex-nowrap",
           start && "animate-scroll",
           pauseOnHover && "hover:[animation-play-state:paused]"
         )}
@@ -93,11 +93,14 @@ export const InfiniteMovingCards = ({
           >
             <blockquote>
               <Image
-                className="relative"
                 src={item.src}
                 alt={item.alt}
-                width={200}
                 height={200}
+                width={200}
+                style={{
+                  width: "auto",
+                  height: "auto",
+                }}
               />
             </blockquote>
           </li>
