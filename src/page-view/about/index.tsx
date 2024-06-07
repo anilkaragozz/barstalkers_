@@ -27,7 +27,11 @@ export function BarsAbout() {
               width={400}
               height={50}
               className="col-span-1 object-cover inset-x-0 rounded-xl mx-auto"
-              priority={true}
+              priority
+              style={{
+                width: "auto",
+                height: "auto",
+              }}
             />
           </div>
         </div>
@@ -55,7 +59,11 @@ export function BarsAbout() {
               width={400}
               height={50}
               className="col-span-1 object-cover inset-x-0 rounded-xl mx-auto"
-              priority={true}
+              priority
+              style={{
+                width: "auto",
+                height: "auto",
+              }}
             />
           </div>
         </div>
@@ -83,7 +91,11 @@ export function BarsAbout() {
               width={400}
               height={50}
               className="col-span-1 object-cover inset-x-0 rounded-xl mx-auto"
-              priority={true}
+              priority
+              style={{
+                width: "auto",
+                height: "auto",
+              }}
             />
           </div>
         </div>

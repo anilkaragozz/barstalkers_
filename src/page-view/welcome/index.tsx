@@ -24,6 +24,11 @@ export function BarsWelcome() {
           className="object-cover rounded-2xl"
           draggable="false"
           unoptimized
+          priority
+          style={{
+            width: "auto",
+            height: "auto",
+          }}
         />
       </div>
     </div>

@@ -2,6 +2,12 @@
 
 import { useVisibilityStore } from "@/context";
 import React, { useEffect } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { toast } from "react-toastify";
+
+export type NewsletterInputs = {
+  email: string;
+};
 
 export function BarsNewsletter() {
   const { isVisible, toggleVisibility } = useVisibilityStore();
@@ -18,10 +24,33 @@ export function BarsNewsletter() {
     };
   }, [isVisible]);
 
-  const handleSubmit = (event: any) => {
-    event.preventDefault();
-    toggleVisibility();
-    console.log(isVisible, "burda");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<NewsletterInputs>();
+
+  const onSubmit: SubmitHandler<NewsletterInputs> = async (email) => {
+    try {
+      const response = await fetch("/api/emails", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email.email,
+          firstName: email.email.split("@")[0],
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error: ${response.statusText}`);
+      }
+      toast.success("Thanks for subscribing!");
+      toggleVisibility();
+    } catch (error) {
+      toast.error("Failed to send email");
+    }
   };
 
   const handleClose = () => {
@@ -61,12 +90,12 @@ export function BarsNewsletter() {
               your inbox.
             </p>
             <form
-              onSubmit={handleSubmit}
+              onSubmit={handleSubmit(onSubmit)}
               className="flex flex-col justify-center items-center mt-6"
             >
               <div className="flex w-full">
                 <input
-                  type="email"
+                  {...register("email", { required: true })}
                   placeholder="Enter your email"
                   className="p-4 border outline-slate-200 rounded-l-lg w-3/4 "
                 />
@@ -77,6 +106,9 @@ export function BarsNewsletter() {
                   Subscribe
                 </button>
               </div>
+              {errors.email && (
+                <span className="text-red-700">This field is required</span>
+              )}
             </form>
           </div>
         </div>
