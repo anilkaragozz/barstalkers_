@@ -12,7 +12,7 @@ export async function POST(request: Request) {
       from: "onboarding@resend.dev",
       to: email,
       subject: "Barstalkers Newsletter",
-      react: Email({ firstName: firstName }),
+      react: Email({ firstName: firstName }), 
     });
 
     if (error) {
