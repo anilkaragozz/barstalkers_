@@ -35,7 +35,7 @@ export default function Email({ firstName }: EmailProps) {
                   src={`${baseUrl}/static/logo.png`}
                   width="600"
                   height="200"
-                  alt="Bardstalkers"
+                  alt="Barstalkers"
                 />
               </Column>
             </Row>

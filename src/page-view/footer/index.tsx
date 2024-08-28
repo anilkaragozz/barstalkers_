@@ -104,11 +104,13 @@ export function BarsFooter() {
               <input
                 {...register("email", { required: true })}
                 placeholder="Enter your email to be informed about us"
-                className="p-4 border outline-slate-200 rounded-l-lg w-3/4 "
+                className="p-4 border outline-slate-200 rounded-l-lg w-3/4 bg-white"
+                disabled
               />
               <button
                 type="submit"
-                className="p-4 bg-orange-200 text-stone-500 hover:text-stone-700 rounded-r-lg hover:bg-orange-300 transition w-1/4"
+                className="p-4 bg-orange-300 text-stone-700 rounded-r-lg transition w-1/4"
+                disabled
               >
                 Subscribe
               </button>
@@ -120,7 +122,7 @@ export function BarsFooter() {
         </div>
 
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d310.8309936860231!2d29.049458070385484!3d41.08679652571681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caca01c585b20f%3A0xccf0dc09c64f9184!2sAy%C5%9Fe%20Abla%20Tekel!5e0!3m2!1str!2str!4v1714946108276!5m2!1str!2str"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3007.1942788879805!2d29.047088175366408!3d41.08660161459946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caca01c574a677%3A0x9f34d66c772fe8b4!2sRumeli%20Hisar%C4%B1%2C%20Nisbetiye%20Cd%20No%3A75%2C%2034470%20Sar%C4%B1yer%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1724852984765!5m2!1str!2str"
           className="border-none h-full w-full"
           loading="eager"
         ></iframe>
