@@ -1,7 +1,7 @@
 import Email from "@/emails";
 import { Resend } from "resend";
 
-const resend = new Resend("re_JowNMUdJ_742PT9Hkr1K8E7EXGfifBCoD");
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
