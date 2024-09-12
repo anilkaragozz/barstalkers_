@@ -1,0 +1,5 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/sk2vx542806w/public_html/hello/
+    - /bin/cp -R css $DEPLOYPATH
+    - /bin/cp index.html $DEPLOYPATH
